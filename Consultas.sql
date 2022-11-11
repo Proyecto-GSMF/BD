@@ -1,4 +1,4 @@
-Consulta 1: Mostrar todos los encuentros de fútbol que se disputarán el día 17/12/2022
+/*Consulta 1: Mostrar todos los encuentros de fútbol que se disputarán el día 17/12/2022 */
 SELECT E.IdEncuentro, FechaHora
 FROM ENCUENTRO E
 JOIN PARTICIPA P2 ON E.IdEncuentro = P2.IdEncuentro
@@ -15,12 +15,12 @@ GROUP BY P4.IdDeporte
 )
 GROUP BY IdEncuentro
 
-Consulta 2: Mostrar los nombres de usuario de los usuarios premium
+/*Consulta 2: Mostrar los nombres de usuario de los usuarios premium */
 SELECT NombreUsuario
 FROM USUARIO
 WHERE Tipo = 1
 
-Consulta 3: Mostrar los nombres de usuario de aquellos que reciban notificaciones del equipo “Aguada”
+/*Consulta 3: Mostrar los nombres de usuario de aquellos que reciban notificaciones del equipo “Aguada” */
 SELECT U.NombreUsuario
 FROM SIGUE S
 JOIN USUARIO U ON S.IdUsuario = U.IdUsuario
@@ -36,7 +36,7 @@ WHERE S.Notificacion = 1 AND S.IdEvento IN (
     )
 )
 
-Consulta 4: Listar los usuarios que pueden visualizar una publicidad dada
+/*Consulta 4: Listar los usuarios que pueden visualizar una publicidad dada */
 SELECT NombreUsuario 
 FROM USUARIO U
 JOIN VE V ON U.IdUsuario = V.IdUsuario
@@ -48,9 +48,9 @@ WHERE NombrePublicidad = 'Ropa Deportiva'
 )
 GROUP BY U.IdUsuario
 
-Consulta 5: Mostrar la cantidad de torneos que sigue el sistema por cada deporte y se encuentran en competencia.
+/* Consulta 5: Mostrar la cantidad de torneos que sigue el sistema por cada deporte y se encuentran en competencia. */
 
-Consulta 6: Mostrar las alineaciones de un encuentro dado
+/*Consulta 6: Mostrar las alineaciones de un encuentro dado */
 SELECT *
 FROM PERTENECE
 WHERE IdEquipo IN (
@@ -64,7 +64,7 @@ WHERE IdEquipo IN (
 )
 order by CAST(IdJugador as UNSIGNED)
 
-Consulta 7: Mostrar los máximos anotadores de cada equipo en un encuentro dado de basketball
+/*Consulta 7: Mostrar los máximos anotadores de cada equipo en un encuentro dado de basketball */
 SELECT Puntuacion
 FROM RESULTADO
 WHERE IdResultado IN (
@@ -77,7 +77,7 @@ WHERE IdResultado IN (
     )
 )
 
-Consulta 8: Listar los resultados de los últimos 5 encuentros de un equipo dado
+/*Consulta 8: Listar los resultados de los últimos 5 encuentros de un equipo dado */
 SELECT Puntuacion
 FROM RESULTADO
 WHERE IdResultado IN (
@@ -100,7 +100,7 @@ WHERE IdResultado IN (
 )
 LIMIT 5
 
-Consulta 9: Listar los equipos que participan actualmente del torneo “Copa Libertadores de América”
+/*Consulta 9: Listar los equipos que participan actualmente del torneo “Copa Libertadores de América” */
 SELECT NombreEquipo
 FROM EQUIPO
 WHERE IdEquipo IN (
@@ -125,7 +125,7 @@ WHERE IdEquipo IN (
     )
 )
 
-Consulta 10: Mostrar los torneos de deportes individuales, qué deporte practica y cuántos deportistas tiene en competencia
+/*Consulta 10: Mostrar los torneos de deportes individuales, qué deporte practica y cuántos deportistas tiene en competencia */
 SELECT *
 FROM COMPETICION
 WHERE IdCompeticion IN (
@@ -145,4 +145,5 @@ WHERE IdCompeticion IN (
         )
     )
 )
+
 
